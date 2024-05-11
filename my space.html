@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Space</title>
+  <style>
+    body{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: #F2F3F4; /* Soft green background */
+      margin: 0;
+      padding: 0;
+      color: #333333; /* Dark text color */
+    }
+    h1{
+      background-color: #FFB6C1; /* Soft pink */
+      border-radius: 50px;
+      text-align: center;
+      color: #333333; /* Dark text color */
+      padding: 30px;
+      font-size: 72px; /* Large font size */
+      margin-top: 40px; /* Increased margin top */
+    }
+
+    /* Small menu */
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .menu-item {
+      background-color: #FFB6C1; /* Soft pink */
+      color: #333333; /* Dark text color */
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin: 0 10px;
+      font-size: 24px; /* Increased font size */
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      background-color: #77DD77; /* Light green on hover */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #FFB6C1; /* Soft pink */
+      color: #333333; /* Dark text color */
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Sections */
+    section {
+      display: none;
+      text-align: left;
+      max-width: 60%; /* Increased max width */
+      margin: 20px auto; /* Added margin */
+      padding: 30px; /* Increased padding */
+      background-color: #FFFFFF; /* White background */
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      color: #333333; /* Dark text color */
+    }
+
+    section.active {
+      display: block;
+    }
+
+    p {
+      text-align: justify;
+      margin: 0;
+    }
+    h2{
+      text-align: center;
+      margin-bottom: 20px; /* Increased margin bottom */
+    }
+    #about-me-section.active{
+      font-size: 20px; /* Increased font size */
+      margin-top: 60px; /* Increased margin top */
+    }
+
+    /* Circle styles */
+    .circle {
+      width: 100px; /* Increased circle size */
+      height: 100px; /* Increased circle size */
+      background-color: #FFB6C1; /* Soft pink */
+      border-radius: 50%;
+      margin: 10px auto; /* Center the circles horizontally */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 20px; /* Font size for text inside circles */
+    }
+  </style>
+</head>
+<body>
+  <h1><em>My Space</em></h1>
+    <!-- Small menu -->
+    <div class="menu">
+      <div class="menu-item" id="about-me">About Me</div>
+      <div class="menu-item" id="languages">Languages</div>
+      <div class="menu-item" id="hobbies">Hobbies</div>
+    </div>
+  
+  
+    <section id="about-me-section" class="active">
+      <h2><em>Welcome To My Space</em></h2>
+      <p>Hi, my name is Marwa Ben Nasser. I am 16 years old, soon to be 17. I was born in Italy and lived most of my life in Tunisia. However, I recently moved to Italy to have a better life. I've been here for 2 years now. If you want to know more about me, you can select other sections like "Languages" and "Hobbies" at the top.</p>
+    </section>
+    <section id="languages-section">
+      <h2>Languages</h2>
+      <div class="circle" style="border: 5px solid #77DD77;">Arabic<br/>90%</div>
+      <div class="circle" style="border: 3.75px solid #77DD77;">French<br/>75%</div>
+      <div class="circle" style="border: 3.5px solid #77DD77;">English<br/>70%</div>
+      <div class="circle" style="border: 2.25px solid #77DD77;">Italian<br/>50%</div>
+      <div class="circle" style="border: 1.35px solid #77DD77;">Spanish<br/>30%</div>
+    </section>
+    <section id="hobbies-section">
+      <h2>Hobbies</h2>
+      <div class="circle" style="border: 5px solid #77DD77;">Crochet</div>
+      <div class="circle" style="border: 5px solid #77DD77;"> Doing makeup</div>
+      <div class="circle" style="border: 5px solid #77DD77;"> Doing nails</div>
+      <div class="circle" style="border: 5px solid #77DD77;"> programing</div>
+      <div class="circle" style="border: 5px solid #77DD77;"> designing</div>
+    </section>
+  
+  
+    <footer>
+      <p>All rights are reserved to Marwa</p>
+    </footer>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const aboutMeSection = document.getElementById('about-me-section');
+        const languagesSection = document.getElementById('languages-section');
+        const hobbiesSection = document.getElementById('hobbies-section');
+
+        const aboutMeMenuItem = document.getElementById('about-me');
+        const languagesMenuItem = document.getElementById('languages');
+        const hobbiesMenuItem = document.getElementById('hobbies');
+
+        aboutMeSection.classList.add('active');
+
+        aboutMeMenuItem.addEventListener('click', function () {
+          aboutMeSection.classList.add('active');
+          languagesSection.classList.remove('active');
+          hobbiesSection.classList.remove('active');
+        });
+
+        languagesMenuItem.addEventListener('click', function () {
+          aboutMeSection.classList.remove('active');
+          languagesSection.classList.add('active');
+          hobbiesSection.classList.remove('active');
+        });
+
+        hobbiesMenuItem.addEventListener('click', function () {
+          aboutMeSection.classList.remove('active');
+          languagesSection.classList.remove('active');
+          hobbiesSection.classList.add('active');
+        });
+
+        // Adjust border size based on percentage
+        const circles = document.querySelectorAll('.circle');
+        circles.forEach(circle => {
+          const percentage = parseInt(circle.innerText);
+          const borderWidth = 5 + (percentage * 0.45); // Adjust this factor as needed
+          circle.style.border = `${borderWidth}px solid #77DD77`; // Green border
+        });
+      });
+    </script>
+</body>
+</html>
